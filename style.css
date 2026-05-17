@@ -1,0 +1,890 @@
+/* ================= GOOGLE FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fdfbf7; /* Màu nền be nhạt sang trọng */
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= REMOVE UNDERLINE ================= */
+header a,
+.menu a,
+.header-right a {
+    text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+header {
+    background: #1a1a1a; /* Đen nhám cao cấp */
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 28px;
+    color: #d4af37; /* Màu vàng Gold */
+    letter-spacing: 2px;
+}
+
+/* ================= SEARCH ================= */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 8px 18px;
+    transition: 0.3s;
+}
+
+.search-box:focus-within {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #d4af37;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    padding: 6px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.search-box input::placeholder {
+    color: #aaa;
+}
+
+/* ================= HEADER RIGHT ================= */
+.header-right {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-right a {
+    color: white;
+    transition: 0.3s;
+}
+
+.header-right a:hover {
+    color: #d4af37;
+    transform: scale(1.1);
+}
+
+/* ================= MENU ================= */
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 15px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.menu ul li {
+    position: relative;
+}
+
+.menu ul li a {
+    display: block;
+    color: white;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.menu ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #d4af37;
+    transition: 0.3s;
+    transform: translateX(-50%);
+}
+
+.menu ul li a:hover::after {
+    width: 100%;
+}
+
+.menu ul li a:hover {
+    color: #d4af37;
+}
+
+/* ================= SUBMENU ================= */
+.submenu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    min-width: 200px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.menu ul li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    color: #333 !important;
+    padding: 12px 20px;
+    text-transform: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.submenu li a::after {
+    display: none;
+}
+
+.submenu li a:hover {
+    background: #fdfbf7;
+    color: #d4af37 !important;
+    padding-left: 25px; /* Hiệu ứng lùi chữ mượt mà */
+}
+
+/* ================= TITLE ================= */
+.title {
+    text-align: center;
+    margin: 60px 0 40px;
+    font-size: 32px;
+    color: #1a1a1a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #d4af37;
+    margin: 15px auto 0;
+}
+
+/* ================= BANNER ================= */
+.banner {
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ================= CATEGORY LIST ================= */
+.category-list {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto auto 60px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: #d4af37;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 20px;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.card p {
+    color: #888;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ================= PRODUCT ================= */
+.product-list {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.product img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.product:hover img {
+    transform: scale(1.03);
+}
+
+.product h3 {
+    font-size: 18px;
+    margin: 15px 0 5px;
+    color: #1a1a1a;
+}
+
+.price {
+    color: #c53e3e;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ================= BUTTON ================= */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #1a1a1a;
+    color: white;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+button:hover {
+    background: #d4af37;
+    color: white;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.pagination button {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #ccc;
+    padding: 10px 18px;
+    border-radius: 8px;
+    width: auto;
+}
+
+.pagination button:hover {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+    box-shadow: none;
+}
+
+/* ================= CART & CHECKOUT ================= */
+.cart-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    gap: 20px;
+    border: 1px solid #f0f0f0;
+}
+
+/* Thêm Flexbox cho cart-info để ép chữ nằm cùng một hàng */
+.cart-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex: 1;
+}
+
+.cart-info h3 {
+    font-size: 18px;
+    margin: 0;
+    white-space: nowrap; /* Chống rớt dòng */
+}
+
+.cart-info p {
+    margin: 0;
+    font-weight: 500;
+    color: #c53e3e;
+    white-space: nowrap;
+}
+
+.cart-item button {
+    width: auto;
+    padding: 8px 15px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.cart-total h2 {
+    color: #c53e3e;
+    margin-bottom: 15px;
+}
+
+.checkout-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 30px;
+}
+
+.checkout-form,
+.checkout-cart {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: 'Montserrat', sans-serif;
+    background: #fafafa;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    background: white;
+}
+
+/* ================= LOGIN / REGISTER ================= */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 40px 0;
+}
+
+.login-box,
+.register-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    width: 400px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 26px;
+    color: #1a1a1a;
+}
+
+/* Loại trừ thẻ checkbox khỏi việc áp dụng width 100% để Ghi nhớ đăng nhập không bị rớt dòng */
+.login-box input:not([type="checkbox"]),
+.register-box input:not([type="checkbox"]) {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+.login-box input:focus:not([type="checkbox"]),
+.register-box input:focus:not([type="checkbox"]) {
+    border-color: #d4af37;
+    outline: none;
+    background: white;
+}
+
+/* Styling cho Ghi nhớ đăng nhập để nằm cùng hàng */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+.register-btn {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    margin-top: 15px;
+}
+
+.register-btn:hover {
+    background: #1a1a1a;
+    color: white;
+    box-shadow: none;
+}
+
+/* ================= ABOUT & CONTACT ================= */
+.about-container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.about-container ul {
+    margin: 20px 0 20px 20px;
+    list-style: none;
+}
+
+.about-container ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #1a1a1a;
+    color: #ccc;
+    padding: 60px 0 40px;
+    margin-top: 80px;
+    border-top: 5px solid #d4af37;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-container h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.footer-container p:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+.footer-container ul {
+    list-style: none;
+}
+
+.footer-container ul li {
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-container ul li:hover {
+    color: #d4af37;
+    padding-left: 5px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .product-list, .category-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .checkout-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    .menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .product-list, .category-list {
+        grid-template-columns: 1fr;
+    }
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cart-info {
+        flex-direction: column; /* Đưa về cột khi ở màn hình điện thoại để tránh bị tràn */
+        gap: 10px;
+    }
+    .checkout-container {
+        flex-direction: column;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-container ul li:hover {
+        padding-left: 0;
+    }
+}
+/* ================= LAB PORTFOLIO STYLES ================= */
+.lab-hero {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom: 2px solid gold;
+}
+
+.lab-hero h2 {
+    font-size: 40px;
+    color: gold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.lab-grid {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+.lab-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-card:hover {
+    transform: translateY(-12px);
+    border-color: gold;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+}
+
+.lab-thumb {
+    height: 200px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: gold;
+}
+
+.lab-thumb span {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    font-size: 60px;
+    opacity: 0.1;
+    font-weight: 800;
+}
+
+.lab-thumb i {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: 1px solid gold;
+    padding: 10px 20px;
+}
+
+.lab-content {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.lab-tag {
+    color: gold;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.lab-content h3 {
+    font-size: 20px;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.lab-content p {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.7;
+}
+
+.lab-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #f5f5f5;
+    background: #fcfcfc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lab-footer span {
+    font-weight: bold;
+    font-size: 13px;
+    color: #111;
+}
+
+.lab-card:hover .lab-footer span {
+    color: gold;
+}
+
+.lab-footer small {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+/* ================= STYLE TRANG LAB THỰC HANH ================= */
+/* 1. Khung lưới chứa toàn bộ các bài Lab */
+.lab-grid {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: grid;
+    /* Tự động co giãn số cột dựa trên kích thước màn hình (Tối thiểu 300px mỗi card) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* 2. Định dạng từng ô Card bài Lab */
+.lab-grid > div {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Đường vạch kẻ màu vàng tinh tế phía trên mỗi Card */
+.lab-grid > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #d4af37; /* Màu vàng Gold thương hiệu */
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+/* Hiệu ứng nhấc lên và đổi màu viền khi di chuột vào Card */
+.lab-grid > div:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+}
+
+.lab-grid > div:hover::before {
+    transform: scaleX(1);
+}
+
+/* 3. Tiêu đề bài Lab (h3) */
+.lab-grid h3 {
+    font-size: 19px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #eee;
+    letter-spacing: 0.5px;
+}
+
+/* 4. Định dạng các nút liên kết bài tập nhỏ (LabXX_1, LabXX_2...) thành dạng Tag/Pill */
+.lab-grid a {
+    display: inline-block;
+    background: #f7f5f0; /* Nền be nhạt quý phái */
+    color: #444;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 5px 4px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #e8e5dd;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng tương tác khi di chuột vào từng bài tập nhỏ */
+.lab-grid a:hover {
+    background: #1a1a1a; /* Đổi sang màu đen nhám */
+    color: #d4af37;       /* Chữ đổi sang màu vàng Gold */
+    border-color: #1a1a1a;
+    transform: scale(1.05);
+}
+
+/* 5. Định dạng nút "Xem chi tiết" ở dưới cùng Card */
+.lab-grid input[type="button"] {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng chuyển màu nút khi hover */
+.lab-grid input[type="button"]:hover {
+    background: #1a1a1a;
+    color: #d4af37;
+    border-color: #d4af37;
+}
